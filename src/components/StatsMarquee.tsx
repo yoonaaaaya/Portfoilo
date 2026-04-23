@@ -11,7 +11,7 @@ export default function StatsMarquee() {
   const repeatedStats = [...STATS, ...STATS, ...STATS, ...STATS];
 
   return (
-    <div className="py-12 border-y border-white/10 bg-brand-muted/50 overflow-hidden relative">
+    <div className="py-12 border-y border-black/5 bg-brand-purple/5 overflow-hidden relative">
       <motion.div 
         animate={{ x: [0, -1000] }}
         transition={{ 
@@ -23,13 +23,13 @@ export default function StatsMarquee() {
       >
         {repeatedStats.map((stat, i) => (
           <div key={i} className="flex items-center gap-6">
-            <span className="text-3xl md:text-5xl font-black text-brand-lime">
+            <span className="text-3xl md:text-5xl font-black text-brand-purple">
               {stat.value}
             </span>
-            <span className="text-sm md:text-lg font-bold text-white uppercase tracking-widest opacity-80">
+            <span className="text-sm md:text-lg font-bold text-brand-dark uppercase tracking-widest opacity-80">
               {stat.label}
             </span>
-            <Star size={24} className="text-brand-lime fill-brand-lime opacity-40 mx-4" />
+            <Star size={24} className="text-brand-purple fill-brand-purple opacity-40 mx-4" />
           </div>
         ))}
       </motion.div>

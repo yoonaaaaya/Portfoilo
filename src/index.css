@@ -4,25 +4,25 @@
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   
-  --color-brand-lime: #bfff00;
-  --color-brand-dark: #0a0a0a;
-  --color-brand-muted: #1a1a1a;
-  --color-brand-gray: #888888;
+  --color-brand-purple: #7c3aed;
+  --color-brand-light: #ffffff;
+  --color-brand-dark: #111111;
+  --color-brand-gray: #666666;
 }
 
 @layer base {
   body {
-    @apply bg-brand-dark text-white font-sans antialiased selection:bg-brand-lime selection:text-black;
+    @apply bg-brand-light text-brand-dark font-sans antialiased selection:bg-brand-purple selection:text-white;
   }
 }
 
 @layer utilities {
   .text-glow {
-    text-shadow: 0 0 20px rgba(191, 255, 0, 0.3);
+    text-shadow: 0 0 20px rgba(124, 58, 237, 0.2);
   }
   
   .glass {
-    @apply bg-white/5 backdrop-blur-md border border-white/10;
+    @apply bg-white/60 backdrop-blur-md border border-black/5;
   }
 }
 

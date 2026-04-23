@@ -11,17 +11,19 @@ import Skills from "./components/Skills";
 import Process from "./components/Process";
 import Experience from "./components/Experience";
 import Contact from "./components/Contact";
+import Highlights from "./components/Highlights";
 
 export default function App() {
   return (
     <main className="min-h-screen">
       <Navbar />
       <Hero />
+      <Highlights />
       <StatsMarquee />
+      <Experience />
       <Projects />
       <Skills />
       <Process />
-      <Experience />
       <Contact />
       
       {/* Scroll indicator for mouse users */}
