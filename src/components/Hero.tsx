@@ -26,7 +26,7 @@ export default function Hero() {
             <div className="relative">
               <div className="w-48 h-48 md:w-64 md:h-64 rounded-[80px] overflow-hidden border-2 border-brand-purple/20 p-2 bg-white shadow-xl">
                 <img 
-                  src="/증명사진_흰색.jpg" 
+                  src="https://raw.githubusercontent.com/yoonaaaaya/Portfoilo_Image/main/%EC%A6%9D%EB%AA%85%EC%82%AC%EC%A7%84_%ED%9D%B0%EC%83%89.jpg" 
                   alt={PERSONAL_INFO.name}
                   className="w-full h-full object-cover rounded-[70px] transition-all duration-700"
                   referrerPolicy="no-referrer"
@@ -75,7 +75,7 @@ export default function Hero() {
                 whileTap={{ scale: 0.95 }}
                 className="flex items-center gap-3 bg-brand-purple text-white px-10 py-5 rounded-full font-bold text-lg group overflow-hidden relative shadow-xl shadow-brand-purple/30"
               >
-                <span className="relative z-10 uppercase tracking-tight">수수행 프로젝트 살펴보기</span>
+                <span className="relative z-10 uppercase tracking-tight">수행 프로젝트 살펴보기</span>
                 <ArrowUpRight className="relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" size={24} />
                 <div className="absolute inset-0 bg-brand-dark translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
               </motion.a>
