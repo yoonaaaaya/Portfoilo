@@ -18,7 +18,7 @@ export default function Skills() {
             </span>
             <h2 className="text-5xl md:text-7xl font-black tracking-tighter leading-tight text-brand-dark">
               사용 가능<br />
-              <span className="italic font-serif text-brand-purple">툴</span>
+              <span className="text-brand-purple">툴</span>
             </h2>
             <p className="text-brand-gray text-lg max-w-md">
               효율적인 업무 수행을 위해 활용하는 핵심 툴킷입니다.
