@@ -5,12 +5,11 @@
 
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import StatsMarquee from "./components/StatsMarquee";
+import Strengths from "./components/Strengths";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
-import Process from "./components/Process";
 import Experience from "./components/Experience";
-import Contact from "./components/Contact";
+import FooterContact from "./components/FooterContact";
 import Highlights from "./components/Highlights";
 
 export default function App() {
@@ -18,13 +17,12 @@ export default function App() {
     <main className="min-h-screen">
       <Navbar />
       <Hero />
+      <Strengths />
       <Highlights />
-      <StatsMarquee />
       <Experience />
       <Projects />
       <Skills />
-      <Process />
-      <Contact />
+      <FooterContact />
       
       {/* Scroll indicator for mouse users */}
       <div className="fixed bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 pointer-events-none opacity-40">

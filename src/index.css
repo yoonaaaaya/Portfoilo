@@ -4,21 +4,22 @@
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   
-  --color-brand-purple: #7c3aed;
+  --color-brand-purple: #4f46e5; /* Main Indigo for Trust and Logic */
   --color-brand-light: #ffffff;
-  --color-brand-dark: #111111;
-  --color-brand-gray: #666666;
+  --color-brand-dark: #0f172a; /* Deep Slate for Professionalism */
+  --color-brand-gray: #64748b;
+  --color-brand-accent: #3b82f6; /* Modern Blue for Dynamic Solutions */
 }
 
 @layer base {
   body {
-    @apply bg-brand-light text-brand-dark font-sans antialiased selection:bg-brand-purple selection:text-white;
+    @apply bg-brand-light text-brand-dark font-sans antialiased selection:bg-brand-purple/30 selection:text-brand-purple;
   }
 }
 
 @layer utilities {
   .text-glow {
-    text-shadow: 0 0 20px rgba(124, 58, 237, 0.2);
+    text-shadow: 0 0 20px rgba(233, 19, 99, 0.15);
   }
   
   .glass {

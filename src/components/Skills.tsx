@@ -12,16 +12,16 @@ export default function Skills() {
       <div className="container mx-auto max-w-6xl">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-20">
           <div className="space-y-6">
-             <span className="text-brand-purple text-xs font-bold uppercase tracking-[0.3em] flex items-center gap-2">
+            <span className="text-brand-purple text-xs font-bold uppercase tracking-[0.3em] flex items-center gap-2">
               <span className="w-1.5 h-1.5 bg-brand-purple rounded-full"></span>
-              {"02"} — Tools & Skills
+              {"02"} — 사용 가능 툴
             </span>
-            <h2 className="text-5xl md:text-7xl font-bold tracking-tighter leading-tight text-brand-dark">
-              My creative<br />
-              <span className="italic font-serif text-brand-purple">toolbox</span>
+            <h2 className="text-5xl md:text-7xl font-black tracking-tighter leading-tight text-brand-dark">
+              사용 가능<br />
+              <span className="italic font-serif text-brand-purple">툴</span>
             </h2>
             <p className="text-brand-gray text-lg max-w-md">
-              A collection of technical tools and strategic methodologies I use to structure problems and deliver polished end-to-end solutions.
+              효율적인 업무 수행을 위해 활용하는 핵심 툴킷입니다.
             </p>
           </div>
 
@@ -29,30 +29,20 @@ export default function Skills() {
             {SKILLS.map((skillGroup, idx) => (
               <motion.div 
                 key={skillGroup.category}
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
                 className="p-8 rounded-3xl bg-white border border-black/5 shadow-sm hover:border-brand-purple/30 transition-all group"
               >
-                <div className="flex justify-between items-start mb-6">
-                   <h3 className="text-xl font-bold text-brand-dark">{skillGroup.category}</h3>
-                   <span className="text-brand-purple font-black text-2xl opacity-20 group-hover:opacity-100 transition-opacity">{skillGroup.level}%</span>
-                </div>
-                
                 <div className="space-y-4">
-                  <div className="h-1.5 w-full bg-brand-purple/10 rounded-full overflow-hidden">
-                    <motion.div 
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${skillGroup.level}%` }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1, delay: 0.5 }}
-                      className="h-full bg-brand-purple shadow-[0_0_10px_#7c3aed]"
-                    />
-                  </div>
+                  <h3 className="text-xl font-black text-brand-dark flex items-center gap-3">
+                    <span className="w-2 h-2 bg-brand-purple rounded-full"></span>
+                    {skillGroup.category}
+                  </h3>
                   <div className="flex flex-wrap gap-2">
                     {skillGroup.skills.map(skill => (
-                      <span key={skill} className="text-[10px] font-bold uppercase tracking-widest text-brand-gray bg-brand-purple/5 px-2 py-1 rounded-md">
+                      <span key={skill} className="text-xs font-medium text-brand-gray border border-black/5 px-3 py-1.5 rounded-full hover:bg-brand-purple/5 hover:text-brand-purple transition-colors">
                         {skill}
                       </span>
                     ))}

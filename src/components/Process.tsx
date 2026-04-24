@@ -15,7 +15,7 @@ export default function Process() {
             <span className="w-1.5 h-1.5 bg-brand-purple rounded-full"></span>
             기획 프로세스
           </span>
-          <h2 className="text-5xl md:text-7xl font-bold tracking-tighter text-brand-dark">How I <span className="text-brand-purple italic font-serif">Work</span></h2>
+          <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-brand-dark">How I <span className="text-brand-purple italic font-serif">Work</span></h2>
         </div>
 
         <div className="grid grid-cols-1 gap-4">

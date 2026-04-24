@@ -16,7 +16,7 @@ export default function Highlights() {
           <div className="space-y-6">
             <div className="flex items-center gap-3 text-brand-purple">
               <School size={20} />
-              <h3 className="text-sm font-black uppercase tracking-widest text-brand-dark">Education</h3>
+              <h3 className="text-sm font-black uppercase tracking-widest text-brand-dark">학력 사항</h3>
             </div>
             <motion.div 
               initial={{ opacity: 0, y: 10 }}
@@ -67,7 +67,7 @@ export default function Highlights() {
           <div className="space-y-6">
             <div className="flex items-center gap-3 text-brand-purple">
               <BookOpen size={20} />
-              <h3 className="text-sm font-black uppercase tracking-widest text-brand-dark">자격 증명</h3>
+              <h3 className="text-sm font-black uppercase tracking-widest text-brand-dark">자격증</h3>
             </div>
             <div className="space-y-3">
               {CERTIFICATIONS.map((cert, i) => (

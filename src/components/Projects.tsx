@@ -5,7 +5,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { ArrowUpRight, X, Calendar, Tag, Target, AlertCircle, Lightbulb, Trophy } from "lucide-react";
+import { ArrowUpRight, X, Calendar, Tag, Target, AlertCircle, Lightbulb, Trophy, Briefcase } from "lucide-react";
 import { PROJECTS } from "../constants";
 
 export default function Projects() {
@@ -18,17 +18,17 @@ export default function Projects() {
           <div className="space-y-4">
             <span className="text-brand-purple text-xs font-bold uppercase tracking-[0.3em] flex items-center gap-2">
               <span className="w-1.5 h-1.5 bg-brand-purple rounded-full"></span>
-              {"01"} — Featured Projects
+              {"01"} — 주요 프로젝트
             </span>
-            <h2 className="text-4xl md:text-6xl font-bold tracking-tighter max-w-2xl leading-tight text-brand-dark">
-              I blend <span className="text-brand-purple italic font-serif">creativity</span> with <span className="text-glow text-brand-purple">technical expertise</span>
+            <h2 className="text-4xl md:text-6xl font-black tracking-tighter leading-tight text-brand-dark">
+              프로젝트
             </h2>
           </div>
           <motion.button 
             whileHover={{ scale: 1.05 }}
             className="group flex items-center gap-2 text-sm font-bold uppercase tracking-widest border border-brand-dark/10 px-6 py-3 rounded-full hover:border-brand-purple hover:bg-brand-purple hover:text-white transition-all text-brand-dark"
           >
-            View all projects
+            전체 프로젝트 보기
             <ArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
           </motion.button>
         </div>
@@ -44,11 +44,11 @@ export default function Projects() {
               className="group cursor-pointer"
               onClick={() => setSelectedProject(project)}
             >
-              <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-gray-100 border border-black/5 mb-8 shadow-sm">
+              <div className="relative aspect-video overflow-hidden rounded-3xl bg-slate-50 border border-black/5 mb-8 shadow-sm">
                 <img 
                   src={project.image} 
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+                  className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-purple/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
@@ -75,7 +75,7 @@ export default function Projects() {
                    </div>
                  </div>
                  <p className="text-brand-gray text-sm leading-relaxed max-w-md pt-2 line-clamp-2">
-                   {project.problem}
+                   {project.summary || project.problem}
                  </p>
               </div>
             </motion.div>
@@ -108,94 +108,120 @@ export default function Projects() {
               </button>
 
               <div className="overflow-y-auto custom-scrollbar flex-1">
-                <div className="relative aspect-video">
+                <div className="relative aspect-video bg-slate-900 overflow-hidden">
                   <img 
                     src={selectedProject.image} 
                     alt={selectedProject.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent transition-opacity duration-500" />
-                  <div className="absolute bottom-8 left-8">
-                    <span className="text-brand-purple text-xs font-bold uppercase tracking-widest bg-brand-purple/10 px-4 py-2 rounded-full mb-4 inline-block">{selectedProject.category}</span>
-                    <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-brand-dark">{selectedProject.title}</h2>
-                  </div>
                 </div>
 
-                <div className="p-8 md:p-12 space-y-12">
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 border-b border-black/5 pb-12">
-                    <div className="space-y-6">
-                      <div className="space-y-2">
+                <div className="p-8 md:p-14 pt-10 md:pt-14 space-y-16">
+                  {/* Project Header */}
+                  <div className="space-y-4">
+                    <span className="text-brand-purple text-xs font-bold uppercase tracking-widest bg-brand-purple/10 px-4 py-2 rounded-full inline-block">{selectedProject.category}</span>
+                    <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-brand-dark">{selectedProject.title}</h2>
+                  </div>
+
+                  {/* Overview Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-12 border-b border-slate-100 pb-12">
+                    <div className="space-y-8">
+                      <div className="space-y-3">
                         <div className="flex items-center gap-2 text-brand-purple font-black text-[10px] uppercase tracking-widest">
                           <Calendar size={14} /> Timeline
                         </div>
-                        <p className="text-brand-dark font-bold">{selectedProject.date}</p>
+                        <p className="text-brand-dark font-bold text-lg">{selectedProject.date}</p>
                       </div>
-                      <div className="space-y-2">
+                      <div className="space-y-3">
                         <div className="flex items-center gap-2 text-brand-purple font-black text-[10px] uppercase tracking-widest">
                           <Tag size={14} /> Technology
                         </div>
                         <div className="flex flex-wrap gap-2">
                           {selectedProject.tags.map((tag: any) => (
-                            <span key={tag} className="text-[10px] font-bold text-brand-gray bg-gray-50 border border-black/5 px-2 py-1 rounded-md">{tag}</span>
+                            <span key={tag} className="text-[11px] font-bold text-brand-gray bg-slate-50 border border-slate-100 px-3 py-1.5 rounded-lg">{tag}</span>
                           ))}
                         </div>
                       </div>
                     </div>
 
-                    <div className="md:col-span-2 space-y-8">
+                    <div className="md:col-span-2 space-y-10">
                       {selectedProject.problem && (
-                        <div className="space-y-3">
-                          <h4 className="flex items-center gap-2 text-brand-purple font-black text-xs uppercase tracking-widest">
-                            <AlertCircle size={16} /> Problem Definition
+                        <div className="space-y-4">
+                          <h4 className="flex items-center gap-2 text-brand-purple font-black text-[11px] uppercase tracking-widest">
+                            <AlertCircle size={16} /> Problem & Insight
                           </h4>
-                          <p className="text-brand-gray leading-relaxed font-medium">{selectedProject.problem}</p>
+                          <p className="text-brand-gray text-lg leading-relaxed font-medium">{selectedProject.problem}</p>
                         </div>
                       )}
                       
                       {selectedProject.solution && (
-                        <div className="space-y-3">
-                          <h4 className="flex items-center gap-2 text-brand-purple font-black text-xs uppercase tracking-widest">
-                            <Lightbulb size={16} /> Solution
+                        <div className="space-y-4">
+                          <h4 className="flex items-center gap-2 text-brand-purple font-black text-[11px] uppercase tracking-widest">
+                            <Lightbulb size={16} /> Strategy & Solution
                           </h4>
-                          <p className="text-brand-gray leading-relaxed font-medium">{selectedProject.solution}</p>
+                          <p className="text-brand-gray text-lg leading-relaxed font-medium">{selectedProject.solution}</p>
                         </div>
                       )}
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12">
-                    <div className="space-y-4">
-                       <h4 className="flex items-center gap-2 text-brand-purple font-black text-xs uppercase tracking-widest">
-                         <Trophy size={18} /> Performance & Outcome
+                  {/* Key Actions Section (New) */}
+                  {selectedProject.keyActions && (
+                    <div className="space-y-10">
+                      <h4 className="flex items-center gap-2 text-brand-gray font-black text-[11px] uppercase tracking-widest">
+                         <Target size={18} className="text-brand-purple" /> Strategic Actions
                        </h4>
-                       <div className="p-6 bg-brand-purple/5 rounded-3xl border border-brand-purple/10">
-                         <p className="text-brand-dark font-black leading-relaxed text-lg italic">"{selectedProject.outcome}"</p>
+                       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                         {selectedProject.keyActions.map((action: any, idx: number) => (
+                           <div key={idx} className="p-8 bg-slate-50 rounded-[32px] border border-slate-100 space-y-4 hover:border-brand-purple/20 transition-colors group/action">
+                             <div className="w-10 h-10 rounded-xl bg-white shadow-sm flex items-center justify-center text-brand-purple font-black group-hover/action:bg-brand-purple group-hover/action:text-white transition-all">
+                               0{idx + 1}
+                             </div>
+                             <h5 className="font-black text-brand-dark">{action.title}</h5>
+                             <p className="text-sm text-brand-gray leading-relaxed font-medium">{action.desc}</p>
+                           </div>
+                         ))}
+                       </div>
+                    </div>
+                  )}
+
+                  {/* Impact & Contributions */}
+                  <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.8fr] gap-12 pt-8">
+                    <div className="space-y-6">
+                       <h4 className="flex items-center gap-2 text-brand-gray font-black text-[11px] uppercase tracking-widest">
+                         <Trophy size={18} className="text-brand-purple" /> Key Impact
+                       </h4>
+                       <div className="p-8 bg-brand-purple/5 rounded-[40px] border border-brand-purple/10 relative overflow-hidden group/kpi">
+                         <div className="absolute top-0 left-0 w-1.5 h-full bg-brand-purple" />
+                         <p className="text-brand-dark font-bold leading-relaxed text-xl">
+                           {selectedProject.outcome}
+                         </p>
                        </div>
                     </div>
 
-                    <div className="space-y-6">
-                       <h4 className="flex items-center gap-2 text-brand-gray font-black text-xs uppercase tracking-widest">
-                         <Target size={18} className="text-brand-purple" /> My Contributions
+                    <div className="space-y-8">
+                       <h4 className="flex items-center gap-2 text-brand-gray font-black text-[11px] uppercase tracking-widest">
+                         <Briefcase size={18} className="text-brand-purple" /> Role & Contribution
                        </h4>
-                       <div className="grid grid-cols-1 gap-4">
+                       <div className="space-y-4">
                         {selectedProject.contribution.map((c: any, i: number) => (
-                          <div key={i} className="flex gap-4 p-4 hover:bg-gray-50 rounded-2xl border border-black/0 hover:border-black/5 transition-all">
-                            <span className="text-brand-purple font-black">0{i+1}</span>
-                            <p className="text-brand-gray text-base leading-relaxed">{c}</p>
+                          <div key={i} className="flex gap-5 p-6 hover:bg-slate-50 rounded-3xl border border-transparent hover:border-slate-100 transition-all group/item">
+                            <div className="w-2 h-2 rounded-full bg-brand-purple/30 mt-3 shrink-0 group-hover/item:scale-150 group-hover/item:bg-brand-purple transition-all" />
+                            <p className="text-brand-gray font-medium text-lg leading-relaxed group-hover/item:text-brand-dark transition-colors">{c}</p>
                           </div>
                         ))}
                       </div>
                     </div>
                   </div>
-                </div>
 
-                <div className="p-8 md:p-12 bg-gray-50 border-t border-black/5 flex justify-center">
-                   <button 
-                    onClick={() => setSelectedProject(null)}
-                    className="px-12 py-4 bg-brand-dark text-white rounded-full font-bold hover:bg-brand-purple transition-all"
-                  >
-                    이 프로젝트 닫기
-                  </button>
+                  <div className="pt-8">
+                    <button 
+                      onClick={() => setSelectedProject(null)}
+                      className="w-full py-6 bg-brand-dark text-white rounded-[24px] text-lg font-black hover:bg-brand-purple transition-all flex items-center justify-center gap-3 shadow-2xl"
+                    >
+                      <span>닫기</span>
+                    </button>
+                  </div>
                 </div>
               </div>
             </motion.div>
